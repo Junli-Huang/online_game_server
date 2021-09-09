@@ -1,5 +1,5 @@
 local skynet = require "skynet"
-local socket = require "skynet.socket"
+
 
 local socket_info = ...
 local GAME_SOCKET = {
@@ -13,7 +13,9 @@ local GAME_SOCKET = {
 		-- print("receive: "..data.." [from:"..socket_info.addr.."]")
 		-- socket.start(socket_info.id)
 
-		socket.write(socket_info.id, data)
+		skynet.send(".gamed","lua","broadcast",data)
+		-- socket.write(socket_info.id, data)
+
 	end,
 	on_disconnect = function ()
 		print("[disconnect:"..socket_info.addr.."]")
