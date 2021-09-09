@@ -10,7 +10,7 @@ local GAME_SOCKET = {
 
 	end,
 	on_receive = function (data)
-		print("receive: "..data.." [from:"..socket_info.addr.."]")
+		-- print("receive: "..data.." [from:"..socket_info.addr.."]")
 		-- socket.start(socket_info.id)
 
 		socket.write(socket_info.id, data)

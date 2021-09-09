@@ -30,11 +30,10 @@ local function on_connect(info)
 
             while idx do
                 
-                --print(idx)
-            
-                local size = string.sub(data,0,idx-1)
+                local size = tonumber(string.sub(data,0,idx-1))
+                -- skynet.error(data,size)
                 local str = string.sub(data, 0,size)
-                -- print(str)
+                -- skynet.error(str)
 
                 skynet.send(standins[info.addr], "GAME_SOCKET", "on_receive", str)
             
@@ -58,8 +57,8 @@ end
 skynet.start(function() 
     print("==========Socket1 Start=========")
     -- 监听一个端口，返回一个 id ，供 start 使用。
-    local id = socket.listen("0.0.0.0", 12223)
-    print("Listen socket :", "0.0.0.0", 12223)
+    local id = socket.listen("0.0.0.0", 12224)
+    print("Listen socket :", "0.0.0.0", 12224)
 
     socket.start(id , function(id, addr)
             local info = {id=id,addr=addr}
