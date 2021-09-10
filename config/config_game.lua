@@ -28,5 +28,3 @@ lua_path = skynetroot .. "lualib/?.lua;"
 			.. "./server/game/?.lua;"
 
 lua_cpath = skynetroot .. "luaclib/?.so;" .. "./luaclib/?.so"
-
-nodename = "game"
