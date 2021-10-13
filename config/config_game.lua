@@ -11,7 +11,7 @@ harbor = 0
 start = "main"
 
 
-preload = "./lualib/preload.lua"
+preload = "./lualib/_preload.lua"
 
 bootstrap = "snlua bootstrap"
 luaservice = skynetroot .. "service/?.lua;"  
@@ -26,5 +26,6 @@ lua_path = skynetroot .. "lualib/?.lua;"
 			.. skynetroot .. "lualib/compat10/?.lua;"
 			.."./lualib/?.lua;"
 			.. "./server/game/?.lua;"
+			-- .. "./protocol/?.lua;"
 
 lua_cpath = skynetroot .. "luaclib/?.so;" .. "./luaclib/?.so"

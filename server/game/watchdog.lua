@@ -64,5 +64,5 @@ skynet.start(function()
 
 	-- print("--"..tostring(a))
 
-	gate = skynet.newservice("mygate")
+	gate = skynet.newservice("gate")
 end)
