@@ -26,6 +26,6 @@ lua_path = skynetroot .. "lualib/?.lua;"
 			.. skynetroot .. "lualib/compat10/?.lua;"
 			.."./lualib/?.lua;"
 			.. "./server/game/?.lua;"
-			-- .. "./protocol/?.lua;"
+			.. "./protocol/?.lua;"
 
 lua_cpath = skynetroot .. "luaclib/?.so;" .. "./luaclib/?.so"

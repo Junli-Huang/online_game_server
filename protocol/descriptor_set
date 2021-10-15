@@ -1,13 +1,13 @@
 
-l
+p
 
 Item.protoItem"'
 Use
 id (Rid
-num (Rnum"'
+num (Rnum"+
 Buy
-id (Rid
-num (Rnumbproto3
+id (Rid
+price (Rpricebproto3
 c
 
 test.prototest"G

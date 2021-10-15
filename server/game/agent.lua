@@ -2,7 +2,7 @@ local skynet = require "skynet"
 local socket = require "skynet.socket"
 
 local pb = require "protobuf"
-
+local msglist = require "msglist"
 
 local socketdriver = require "socketdriver"
 
@@ -19,15 +19,22 @@ skynet.register_protocol {
 		assert(fd == client_fd)	-- You can use fd to reply message
 		skynet.ignoreret()	-- session is fd, don't call skynet.ret
 
-		local result = pb.decode("Item.Use", data)
-		luadump(result)
+
+		local msgid = string.unpack(">I2",data)
+		local name = msglist.get_by_key(msgid)
+		print(msgid,name)
+
+		local result = pb.decode(name, data:sub(3))
+		luadump(result,name)
 
 
 		local stringbuffer = pb.encode("Item.Buy", 
 		{
 		  id = 777,
-		  num = result.num*10,
+		  price = result.num*10,
 		})
+		stringbuffer = string.pack(">I2", 10001) .. stringbuffer
+
 
 		local package = string.pack(">s2", stringbuffer)
 
